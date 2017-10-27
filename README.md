@@ -1,8 +1,33 @@
 # clojure-exercises
 
-A [reagent](https://github.com/reagent-project/reagent) application designed to ... well, that part is up to you.
+- Fizz Buzz [Code](https://github.com/angeloocana/clojure-exercises/blob/master/src/cljs/clojure_exercises/fizzbuzz.cljs) [Test](https://github.com/angeloocana/clojure-exercises/blob/master/test/cljs/clojure_exercises/fizzbuzz.cljs)
 
 ## Development Mode
+
+### Dependencies
+* [Closure](https://clojure.org/)
+* [ClosureScript](https://clojurescript.org/)
+* [Leiningen](https://leiningen.org/)
+
+### Run application:
+
+```bash
+  lein clean
+  lein figwheel dev
+```
+
+Figwheel will automatically push cljs changes to the browser.
+
+Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
+
+### Run tests:
+
+```bash
+  lein clean
+  lein doo phantom test once
+```
+
+The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn). 
 
 ### cljs-devtools
 
@@ -27,39 +52,41 @@ Navigate to a clojurescript file and start a figwheel REPL with `cider-jack-in-c
 
 Compile css file once.
 
-```
-lein garden once
+```bash
+  lein garden once
 ```
 
 Automatically recompile css file on change.
 
+```bash
+  lein garden auto
 ```
-lein garden auto
-```
-
-### Run application:
-
-```
-lein clean
-lein figwheel dev
-```
-
-Figwheel will automatically push cljs changes to the browser.
-
-Wait a bit, then browse to [http://localhost:3449](http://localhost:3449).
-
-### Run tests:
-
-```
-lein clean
-lein doo phantom test once
-```
-
-The above command assumes that you have [phantomjs](https://www.npmjs.com/package/phantomjs) installed. However, please note that [doo](https://github.com/bensu/doo) can be configured to run cljs.test in many other JS environments (chrome, ie, safari, opera, slimer, node, rhino, or nashorn). 
 
 ## Production Build
 
+```bash
+  lein clean
+  lein cljsbuild once min
 ```
-lein clean
-lein cljsbuild once min
+
+## Template
+
+Link: [reagent-figwheel](https://github.com/gadfly361/reagent-figwheel)
+
+```bash
+  lein new reagent-figwheel tic-tac-toe-ai-clojure +garden +test +devtools +cider +keechma
 ```
+
+* React
+  * [reagent](https://github.com/reagent-project/reagent)
+* CSS
+	* [garden](https://github.com/noprompt/garden) (`+garden`)
+* Development
+	* [cljs.test](https://github.com/clojure/clojurescript/blob/master/src/main/cljs/cljs/test.cljs) and [doo](https://github.com/bensu/doo) (`+test`)
+	* [cljs-devtools](https://github.com/binaryage/cljs-devtools) (`+devtools`)
+* Editor
+	* [cider](https://github.com/clojure-emacs/cider) (`+cider`)
+* Frameworks
+	* [keechma](https://github.com/keechma/keechma) (`+keechma`)
+* Hot reloading
+  * [lein-figwheel](https://github.com/bhauman/lein-figwheel)
